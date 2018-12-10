@@ -1,0 +1,43 @@
+// Colors
+$white: #FFFFFF;
+$white-dark: #e6e6e6;
+$white-darker: #cccccc;
+
+$gray-lighter: #b3b3b3;
+$gray-light: #999999;
+$gray: #808080;
+$gray-dark: #666666;
+$gray-darker: #4d4d4d;
+
+$black-light: #333333;
+$black-lighter: #1a1a1a;
+$black: #000000;
+
+$red: #FF4333;
+$red-hover: darken($red, 5%); //#ff2c1a
+$red-active: darken($red, 10%); //#ff1400
+
+$beige: #E1AF64;
+$beige-hover: lighten($beige, 5%); //#e5ba79
+$beige-active: lighten($beige, 5%); //#e9c58f
+
+$beige-light: #FFD480;
+$beige-lighter: #FFE0A2;
+
+$green: #00A22E;
+$green-hover: lighten($green, 5%); //#00bb35
+$green-active: lighten($green, 10%); //#00bb35
+
+// Fonts family
+$font-list: FiraSans, Roboto, OpenSans;
+$count: 9;
+@each $font in $font-list {
+    @if ($font == Roboto) {$count: 6} @else if ($font == OpenSans) {$count: 5}
+    @for $i from 1 through 9 {
+        @if ($i <= $count) {
+            $weight: $i*100;
+            @include fontFace('#{$font}', '/fonts/#{$font}/#{$font}-#{$weight}', normal, #{$weight});
+            @include fontFace('#{$font}', '/fonts/#{$font}/#{$font}-#{$weight}i', italic, #{$weight});
+        }
+    }
+}

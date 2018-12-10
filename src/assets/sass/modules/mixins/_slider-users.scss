@@ -1,0 +1,24 @@
+@mixin slider_user($i,$positonX, $positonY, $size, $page: null) {
+  $folder: "/img/welcome/";
+  @if ($page != null) {
+    $folder: "/img/investor/";
+  }
+  &[data-user="#{$i}"] {
+    background: url("#{$folder}img_user_0#{$i}.png") no-repeat;
+    background-position: #{$positonX} #{$positonY};
+    background-size: #{$size}px;
+  }
+}
+
+%content-block {
+  background: black;
+  height: initial;
+}
+.content__block {
+  @extend %content-block;
+
+  &--red {
+    background: red;
+    @extend %content-block;
+  }
+}
